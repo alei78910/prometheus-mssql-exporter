@@ -68,3 +68,13 @@ for example:
 `docker run -e ACCEPT_EULA=Y -e SA_PASSWORD=qkD4x3yy -p 1433:1433 --name mssql -d microsoft/mssql-server-linux`
 
 To use a persistent storage include `-v /mypath:/var/opt/mssql/data`
+
+docker build -t prometheus-mssql-exporter .
+docker build -t alei78910/prometheus-mssql-exporter:latest .
+docker tag prometheus-mssql-exporter alei78910/prometheus-mssql-exporter:latest
+docker push "alei78910/prometheus-mssql-exporter":latest
+docker build -t ${IMAGE}:${VERSION} .
+docker tag prometheus-mssql-exporter:latest alei78910/prometheus-mssql-exporter:latest
+
+docker tag prometheus-mssql-exporter:latest alei78910/prometheus-mssql-exporter:latest
+docker push alei78910/prometheus-mssql-exporter:latest
